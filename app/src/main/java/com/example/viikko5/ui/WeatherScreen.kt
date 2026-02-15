@@ -60,10 +60,6 @@ fun ErrorScreen(message: String, onRetry: () -> Unit) {
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
     ) {
-        Text(text = message)
-        Spacer(modifier = Modifier.height(8.dp))
-        Button(onClick = onRetry) {
-            Text("Yritä uudelleen")
-        }
+        Text(text = "Kaupunkia ei löydy")
     }
 }
