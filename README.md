@@ -1,19 +1,19 @@
 ## Viikkotehtävä 5 - Sää appi
 
 ### Mitä Retrofit tekee
-- HTTP-pyyntöjen hallinta
-
+Retrofit on Squaren kehittämä kirjasto, joka tekee HTTP-pyyntöjen tekemisestä helppoa ja tyyppiturvalista. Retrofit mahdollistaa WeatherApi rajapinnan.
 
 ### Miten JSON muutetaan dataluokiksi
-- Gson hoitaa muunnoksen taustalla
+Gson konvertoi JSONin Kotlinin data-luokiksi taustalla.
 
 ### Miten coroutines toimii tässä
-- API-kutsu tehdään taustasäikeessä
-- UI päivittyy kun data tulee
+API-kutsut tehdään taustasäikeessä viewModelScope.launch-coroutinella. Kun data tulee, stateFlow päivittyy ja Compose UI reagoi automaattisesti.
 
 ### Miten UI-tila toimii
-- ViewModel hallitsee WeatherUiState-olion
-- Compose reagoi tilamuutoksiin automaattisesti
+ViewModel hallitsee sovelluksen UI-tilaa. Compose muuttaa sovelluksen tilaa StateFlown mukaisesti - Loading, Success, Error
 
 ### Miten API-key on tallennettu
-- local.properties → BuildConfig → Retrofit
+API-key on tallennettu local.properties-tiedostoon. build.gradle lukee tiedoston ja lisää BuildConfig kenttään: buildConfigField("String", "OPENWEATHER_API_KEY", "\"$apiKey\"").
+Retrofit käyttää kyseistä avainta API-kutsussa.
+
+[Linkki videoon](https://youtu.be/jRCNj6CKuCs)
