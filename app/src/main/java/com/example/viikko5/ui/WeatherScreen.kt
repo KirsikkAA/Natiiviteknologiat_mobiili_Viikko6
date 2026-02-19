@@ -16,12 +16,15 @@ import androidx.compose.runtime.getValue
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.*
 import androidx.compose.ui.unit.dp
+import com.example.viikko5.ui.components.SearchHistory
 
 @Composable
 fun WeatherScreen(viewModel: WeatherViewModel = viewModel()) {
 
     val searchQuery by viewModel.searchQuery.collectAsState()
     val weatherState by viewModel.weatherState.collectAsState()
+    val searchHistory by viewModel.searchHistory.collectAsState(initial = emptyList())
+
 
     Column(modifier = Modifier.fillMaxSize()) {
         SearchBar(
@@ -29,6 +32,16 @@ fun WeatherScreen(viewModel: WeatherViewModel = viewModel()) {
             onQueryChange = { viewModel.onSearchQueryChange(it) },
             onSearch = { viewModel.searchWeather() }
         )
+
+        SearchHistory(
+            history = searchHistory,
+            onItemClick = {city ->
+                viewModel.onSearchQueryChange(city)
+                viewModel.searchWeather()
+            }
+        )
+
+        Spacer(modifier = Modifier.height(16.dp))
 
         when (val state = weatherState) {
             Result.Loading -> {

@@ -11,7 +11,7 @@ import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.launch
 
 class WeatherViewModel (
-    private val repository: WeatherRepository = WeatherRepository()
+    private val repository: WeatherRepository
 ) : ViewModel() {
 
     private val _searchQuery = MutableStateFlow("")
@@ -19,6 +19,8 @@ class WeatherViewModel (
 
     private val _weatherState = MutableStateFlow<Result<WeatherResponse>>(Result.Loading)
     val weatherState: StateFlow<Result<WeatherResponse>> = _weatherState.asStateFlow()
+
+    val searchHistory = repository.getAllWeather()
 
     fun onSearchQueryChange(query: String) {
         _searchQuery.value = query
