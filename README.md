@@ -4,7 +4,8 @@
 Room on Androidin tietokantakirjasto, joka yksinkertaistaa SQLite-tietokantojen kanssa työskentelyn. Datan käsittely tapahtuu järjestelmällisesti: Entity – DAO – Database – Repository – ViewModel – UI.
 
 ### Projektin rakenne
-<laita kuva>
+<img width="160" height="335" alt="image" src="https://github.com/user-attachments/assets/5af87b83-934e-4fc8-a74c-560d0ef3eb5c" />
+
 
 ### Miten datavirta kulkee
 1. Käyttäjä syöttää kaupungin hakukenttään
