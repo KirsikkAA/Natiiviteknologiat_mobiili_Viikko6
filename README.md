@@ -23,3 +23,5 @@ Room on Androidin tietokantakirjasto, joka yksinkertaistaa SQLite-tietokantojen 
 3. Muussa tapauksessa:
   - Haetaan data OpenWeather API:sta
   - Tallennetaan uusi tulos tietokantaan
+
+[Linkki videoon](https://youtu.be/WmTlCA6D-OI)
